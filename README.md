@@ -8,7 +8,7 @@ Códigos utilizados no estágio. Inclui Arduino e ESP32.
  Qual o público alvo do projeto? Agricultores familiares.
 	
  Objetivos específicos do projeto (dos quais abrange o estágio). 
-	- Definir a tecnologia de comunicação a ser utilizada;
+ - Definir a tecnologia de comunicação a ser utilizada;
  - Integrar ao hardware o meio de comunicação a longas distâncias;
  - Integrar ao hardware o funcionamento por baterias.
 
