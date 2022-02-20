@@ -22,8 +22,6 @@ void loop(){
 int led = 5; //tem que ser pwm por ser analogWrite
 int val_pot = 0; //valor potenciometro/posição
 int brilho = 0;
-int leitura01 = 0;
-int leitura02 = 0;
 
 void setup(){
   pinMode(led, OUTPUT);
