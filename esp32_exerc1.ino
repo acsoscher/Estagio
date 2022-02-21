@@ -34,19 +34,19 @@ int value = 0;
 void loop(){
 
   //Código exemplo do IDE para wifi server com algumas modificações
- WiFiClient client = server.available();   // listen for incoming clients
+ WiFiClient client = server.available();   // procura por clientes
 
-  if (client) {                             // if you get a client,
-    Serial.println("New Client.");           // print a message out the serial port
-    String currentLine = "";                // make a String to hold incoming data from the client
-    while (client.connected()) {            // loop while the client's connected
-      if (client.available()) {             // if there's bytes to read from the client,
-        char c = client.read();             // read a byte, then
-        Serial.write(c);                    // print it out the serial monitor
-        if (c == '\n') {                    // if the byte is a newline character
+  if (client) {                             // se houver um cliente 
+    Serial.println("Novo Cliente.");        // ele vai informar no monitor serial  
+    String currentLine = "";                // e criar uma string para armazenar dado ele  
+    while (client.connected()) {            // enquanto o cliente estivr conectado
+      if (client.available()) {             // se houver alguma informação do cliente ela será lida
+        char c = client.read();             // e então escrita no monitor serial
+        Serial.write(c);                    
+        if (c == '\n') {                    
 
-          // if the current line is blank, you got two newline characters in a row.
-          // that's the end of the client HTTP request, so send a response:
+         
+          // ao final do pedido do cliente a seguinte mensagem será escrita
           if (currentLine.length() == 0) {
             client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html");
@@ -58,20 +58,21 @@ void loop(){
             client.println();
             
             break;
-          } else {    // if you got a newline, then clear currentLine:
+          } else {    
             currentLine = "";
           }
-        } else if (c != '\r') {  // if you got anything else but a carriage return character,
-          currentLine += c;      // add it to the end of the currentLine
+        } else if (c != '\r') {  
+          currentLine += c;      
         }
 
-        // Check to see if the client request was "GET /H" or "GET /L":
+        // se o cliente clicou em 'ligado' será escrito na tela do ESP32 ON
         if (currentLine.endsWith("GET /ON")) {
             Heltec.display->clear();
             //Heltec.display->setFont(ArialMT_Plain_10);
             Heltec.display->drawString(64, 15, "ON");
             Heltec.display->display();
           }
+         // se o cliente clicou em 'desligado' será escrito na tela do ESP32 OFF
         if (currentLine.endsWith("GET /OFF")) {
             Heltec.display->clear();
             //Heltec.display->setFont(ArialMT_Plain_10);
@@ -80,7 +81,7 @@ void loop(){
         }
       }
     }
-    // close the connection:
+    // aqui fecha a conexão
     client.stop();
     Serial.println("Cliente desconectado.");
   }
