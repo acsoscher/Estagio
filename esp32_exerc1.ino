@@ -30,7 +30,7 @@ void setup()
 
 }
 
-int value = 0;
+
 void loop(){
 
   //Código exemplo do IDE para wifi server com algumas modificações
