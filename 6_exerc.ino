@@ -1,29 +1,3 @@
-/*Programa feito para mostrar funcionalidade do display
-int segA = 4;
-int segB = 3;
-int segC = 5;
-int segD = 6;
-int segE = 7;
-int segF = 8;
-int segG = 9;
-
-void setup()
-{
-  pinMode(segA, OUTPUT);
-  pinMode(segB, OUTPUT);
-  pinMode(segC, OUTPUT);
-  pinMode(segD, OUTPUT);
-  pinMode(segE, OUTPUT);
-  pinMode(segF, OUTPUT);
-  pinMode(segG, OUTPUT);
-}
-
-void loop()
-{
-  digitalWrite(segA, LOW);
-  delay(1000);
-}*/
-//Programa para fazer um contador;
 int a = 4, b = 3, c = 5, d = 6, e = 7, f = 8, g = 9; //variaveis de mesmo tipo colocadas na mesma linha
 int num[10][7]{ //matriz (array)
   {a,b,c,d,e,f},//zero
@@ -70,3 +44,29 @@ void apaga(){
 void numero(int n){
   for(int i = 0; i < 7; i++) digitalWrite(num[n][i], LOW);
 }
+/*Programa feito para mostrar funcionalidade do display
+int segA = 4;
+int segB = 3;
+int segC = 5;
+int segD = 6;
+int segE = 7;
+int segF = 8;
+int segG = 9;
+
+void setup()
+{
+  pinMode(segA, OUTPUT);
+  pinMode(segB, OUTPUT);
+  pinMode(segC, OUTPUT);
+  pinMode(segD, OUTPUT);
+  pinMode(segE, OUTPUT);
+  pinMode(segF, OUTPUT);
+  pinMode(segG, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(segA, LOW);
+  delay(1000);
+}*/
+//Programa para fazer um contador;
